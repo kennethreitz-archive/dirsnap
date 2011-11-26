@@ -10,9 +10,9 @@ from setuptools import setup
 
 APP_NAME = 'dirsnap'
 APP_SCRIPT = './_dirsnap'
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 
-required = ['requests']
+required = ['requests', 'clint']
 
 settings = dict()
 
