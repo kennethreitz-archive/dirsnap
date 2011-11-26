@@ -14,3 +14,16 @@ Simple::
     Uploading snapshot...
     Done!
     http://cl.ly/0a191R3K160t1w1P0N25/snapshot-app.tar.gz
+
+Install
+-------
+
+::
+
+    $ pip install dirsnap
+
+
+Warning
+-------
+
+Be careful! This uploads the given directory to GitHub's gist, anomonously. You won't be able to delete it.
