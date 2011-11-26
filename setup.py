@@ -8,54 +8,28 @@ import sys
 from setuptools import setup
 
 
-APP_NAME = 'legit'
-APP_SCRIPT = './legit_r'
-VERSION = '0.1.0'
+APP_NAME = 'dirsnap'
+APP_SCRIPT = './_dirsnap'
+VERSION = '0'
 
-
-# Grab requirments.
-with open('reqs.txt') as f:
-    required = f.readlines()
-    print required
-
+required = ['requests']
 
 settings = dict()
-
 
 # Publish Helper.
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
     sys.exit()
 
-
-# Build Helper.
-if sys.argv[-1] == 'build':
-    try:
-        import py2exe
-    except ImportError:
-        print 'py2exe is required to continue.'
-        sys.exit(1)
-
-    sys.argv.append('py2exe')
-
-    settings.update(
-        console=[{'script': APP_SCRIPT}],
-        zipfile = None,
-        options = {
-            'py2exe': {
-                'compressed': 1,
-                'optimize': 0,
-                'bundle_files': 1}})
-
 settings.update(
     name=APP_NAME,
     version=VERSION,
-    description='Sexy Git CLI, Inspired by GitHub for Mac.',
+    description='Takes a snapshot of a directory, uploads to a public URL.',
     long_description=open('README.rst').read(),
     author='Kenneth Reitz',
     author_email='me@kennethreitz.com',
-    url='https://github.com/kennethreitz/legit',
-    packages= ['legit',],
+    url='https://github.com/kennethreitz/dirsnap',
+    packages= ['dirsnap',],
     install_requires=required,
     license='BSD',
     classifiers=(
@@ -70,7 +44,7 @@ settings.update(
     ),
     entry_points={
         'console_scripts': [
-            'legit = legit.cli:main',
+            'dirsnap = dirsnap.cli:main',
         ],
     }
 )
